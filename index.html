@@ -1,0 +1,305 @@
+<<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADA Servicio Técnico - Soluciones Informáticas Profesionales</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Alpine.js para interactividad -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0ea5e9',
+                        'primary-hover': '#0284c7',
+                        'dark-bg': '#0f172a',
+                        'light-bg': '#1e293b',
+                        'card-bg': '#1e293b',
+                        'light-text': '#cbd5e1',
+                        'heading-text': '#f1f5f9',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .typing-cursor {
+            border-right: 2px solid #0ea5e9;
+            animation: blink 0.7s steps(4, start) infinite;
+        }
+        @keyframes blink {
+            to {
+                border-color: transparent;
+            }
+        }
+        .text-gradient {
+            background-image: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-light-text" x-data="{ scrolled: false }" @scroll.window="scrolled = (window.scrollY > 50)">
+
+    <!-- Header y Navegación -->
+    <nav :class="{'bg-dark-bg/70 backdrop-blur-lg shadow-lg': scrolled, 'bg-transparent': !scrolled}" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center max-w-7xl">
+            {/* ★★★ AQUÍ ESTÁ EL CAMBIO DEL LOGO ★★★ */}
+            <a href="#">
+                <img src="logo-ada.jpg" alt="Logo de ADA Servicio Técnico" class="h-12">
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#servicios" class="text-light-text hover:text-primary transition-colors">Servicios</a>
+                <a href="#porque-nosotros" class="text-light-text hover:text-primary transition-colors">Por Qué Nosotros</a>
+                <a href="#testimonios" class="text-light-text hover:text-primary transition-colors">Testimonios</a>
+                <a href="#contacto" class="bg-primary text-white font-bold py-2 px-5 rounded-lg hover:bg-primary-hover transition-all">Contactar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor Principal -->
+    <div class="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
+
+        <!-- Sección Hero -->
+        <header class="text-center pt-32 pb-20 md:pt-48 md:pb-32">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-heading-text leading-tight">
+                Soluciones <span class="text-gradient">expertas</span> para<br>
+                <span class="text-primary" x-data="typewriter()" x-text="text" x-init="init()"></span><span class="typing-cursor"></span>
+            </h1>
+            <p class="text-lg text-light-text mt-6 max-w-2xl mx-auto">Recuperamos, reparamos y optimizamos tus equipos con la máxima eficiencia y profesionalismo.</p>
+            <div class="mt-10">
+                <a href="#contacto" class="bg-primary text-white font-bold py-4 px-10 rounded-lg hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-dark-bg transition-all text-lg">
+                    Obtener Diagnóstico
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <!-- Sección de Servicios con Iconos -->
+            <section id="servicios" class="py-16">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl font-bold text-heading-text">Un Servicio Para Cada Necesidad</h2>
+                    <p class="text-light-text mt-2">Cubrimos todas las áreas para garantizar el óptimo funcionamiento de tu tecnología.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-card-bg p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 fade-in">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary/20 mb-5"><svg class="h-8 w-8 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
+                        <h3 class="text-2xl font-bold mb-3 text-heading-text">Reparación General</h3>
+                        <p class="text-light-text">Solucionamos fallas de hardware y software en notebooks y PC de todas las marcas.</p>
+                    </div>
+                    <div class="bg-card-bg p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 fade-in" style="transition-delay: 150ms;">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary/20 mb-5"><svg class="h-8 w-8 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.944A12.02 12.02 0 0012 22.944a12.02 12.02 0 009-1.944 12.02 12.02 0 00-1.382-11.984z" /></svg></div>
+                        <h3 class="text-2xl font-bold mb-3 text-heading-text">Seguridad y Virus</h3>
+                        <p class="text-light-text">Eliminamos malware y virus, protegiendo tu información y privacidad con las mejores herramientas.</p>
+                    </div>
+                    <div class="bg-card-bg p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 fade-in" style="transition-delay: 300ms;">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary/20 mb-5"><svg class="h-8 w-8 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg></div>
+                        <h3 class="text-2xl font-bold mb-3 text-heading-text">Optimización de Sistema</h3>
+                        <p class="text-light-text">Mejoramos la velocidad y el rendimiento de tu sistema para que funcione como nuevo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección "Por qué elegirnos" -->
+            <section id="porque-nosotros" class="py-16">
+                 <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl font-bold text-heading-text">Tu Tranquilidad es Nuestra Prioridad</h2>
+                    <p class="text-light-text mt-2">Nos diferenciamos por nuestro compromiso con la calidad y la satisfacción del cliente.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div class="fade-in">
+                        <div class="flex items-center justify-center h-20 w-20 rounded-full bg-card-bg mx-auto mb-4"><svg class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                        <h3 class="text-xl font-bold text-heading-text">Diagnóstico Rápido</h3>
+                        <p class="text-light-text">Identificamos el problema en tiempo récord.</p>
+                    </div>
+                    <div class="fade-in" style="transition-delay: 150ms;">
+                        <div class="flex items-center justify-center h-20 w-20 rounded-full bg-card-bg mx-auto mb-4"><svg class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                        <h3 class="text-xl font-bold text-heading-text">Garantía de Servicio</h3>
+                        <p class="text-light-text">Todos nuestros trabajos están garantizados.</p>
+                    </div>
+                    <div class="fade-in" style="transition-delay: 300ms;">
+                        <div class="flex items-center justify-center h-20 w-20 rounded-full bg-card-bg mx-auto mb-4"><svg class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
+                        <h3 class="text-xl font-bold text-heading-text">Precios Transparentes</h3>
+                        <p class="text-light-text">Sin costos ocultos ni sorpresas.</p>
+                    </div>
+                     <div class="fade-in" style="transition-delay: 450ms;">
+                        <div class="flex items-center justify-center h-20 w-20 rounded-full bg-card-bg mx-auto mb-4"><svg class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></div>
+                        <h3 class="text-xl font-bold text-heading-text">Técnicos Certificados</h3>
+                        <p class="text-light-text">Equipo de profesionales calificados.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección de Testimonios -->
+            <section id="testimonios" class="py-16">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl font-bold text-heading-text">Lo que Dicen Nuestros Clientes</h2>
+                    <p class="text-light-text mt-2">La satisfacción de nuestros clientes es nuestro mejor aval.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- ★★★ EDITA AQUÍ: Cambia los testimonios. ★★★ -->
+                    <div class="bg-card-bg p-8 rounded-xl shadow-lg fade-in">
+                        <p class="text-light-text mb-4">"Mi notebook estaba increíblemente lento. El equipo de ADA lo dejó como nuevo en menos de 24 horas. ¡Servicio 100% recomendado!"</p>
+                        <p class="font-bold text-heading-text">- Juan Pérez</p>
+                    </div>
+                    <div class="bg-card-bg p-8 rounded-xl shadow-lg fade-in" style="transition-delay: 150ms;">
+                        <p class="text-light-text mb-4">"Tenía un virus que bloqueó todos mis archivos. Estaba desesperada, pero ellos recuperaron todo. ¡Me salvaron! Muy profesionales."</p>
+                        <p class="font-bold text-heading-text">- María González</p>
+                    </div>
+                    <div class="bg-card-bg p-8 rounded-xl shadow-lg fade-in" style="transition-delay: 300ms;">
+                        <p class="text-light-text mb-4">"Excelente atención y precios justos. Me explicaron todo el proceso con mucha paciencia. Sin duda mi servicio técnico de confianza."</p>
+                        <p class="font-bold text-heading-text">- Carlos Soto</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección del Formulario -->
+            <section id="contacto" class="bg-light-bg p-8 md:p-12 rounded-xl shadow-2xl my-16 fade-in">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-heading-text">¿Listo para Solucionar tu Problema?</h2>
+                    <p class="text-center text-light-text mt-2 mb-8 max-w-2xl mx-auto">Completa el formulario y uno de nuestros técnicos expertos se pondrá en contacto contigo a la brevedad.</p>
+                </div>
+                <form id="ticket-form" class="max-w-2xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" id="nombre" name="nombre" required placeholder="Nombre Completo" class="w-full bg-dark-bg px-4 py-3 border border-slate-600 rounded-lg focus:ring-primary focus:border-primary text-light-text">
+                        <input type="email" id="email" name="email" required placeholder="Correo Electrónico" class="w-full bg-dark-bg px-4 py-3 border border-slate-600 rounded-lg focus:ring-primary focus:border-primary text-light-text">
+                    </div>
+                    <div class="mt-6">
+                        <select id="equipo" name="equipo" required class="w-full bg-dark-bg px-4 py-3 border border-slate-600 rounded-lg focus:ring-primary focus:border-primary text-light-text">
+                            <option value="" disabled selected>Selecciona el tipo de equipo</option>
+                            <option value="Notebook">Notebook</option>
+                            <option value="Computador de Escritorio (PC)">Computador de Escritorio (PC)</option>
+                            <option value="Celular o Tablet">Celular o Tablet</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="mt-6">
+                        <textarea id="problema" name="problema" rows="5" required placeholder="Describe tu problema detalladamente..." class="w-full bg-dark-bg px-4 py-3 border border-slate-600 rounded-lg focus:ring-primary focus:border-primary text-light-text"></textarea>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button type="submit" class="w-full md:w-auto bg-primary text-white font-bold py-3 px-12 rounded-lg hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-light-bg transition-all text-lg">
+                            Enviar Solicitud
+                        </button>
+                    </div>
+                </form>
+                <div id="confirmation-message" class="hidden mt-6 text-center bg-green-900/50 text-green-300 p-4 rounded-lg border border-green-700 max-w-2xl mx-auto">
+                    <p class="font-bold">¡Solicitud enviada con éxito!</p>
+                    <p>Revisa tu aplicación de correo para terminar de enviar el ticket. Te contactaremos pronto.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Pie de Página -->
+    <footer class="text-center mt-16 py-10 border-t border-slate-700 bg-light-bg">
+        <div class="container mx-auto px-6 flex flex-col items-center">
+            {/* ★★★ AQUÍ ESTÁ EL CAMBIO DEL LOGO EN EL FOOTER ★★★ */}
+            <img src="logo-ada.jpg" alt="Logo de ADA Servicio Técnico" class="h-16 mb-4">
+            <p class="text-light-text">© 2024 ADA Servicio Técnico | Curicó, Chile</p>
+            <p class="text-sm text-slate-500 mt-2">Diseño y desarrollo con ♥</p>
+        </div>
+    </footer>
+    
+    <!-- Botón para volver arriba -->
+    <button x-show="scrolled" @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-primary-hover transition-all" aria-label="Volver arriba">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+    </button>
+
+    <script>
+        // Lógica del formulario
+        const form = document.getElementById('ticket-form');
+        const confirmationMessage = document.getElementById('confirmation-message');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const tuCorreo = 'tu-correo@ejemplo.com'; // ★★★ CAMBIA ESTO ★★★
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const equipo = document.getElementById('equipo').value;
+            const problema = document.getElementById('problema').value;
+            const asunto = `Nueva Solicitud para ADA - ${nombre}`;
+            const cuerpo = `Se ha generado una nueva solicitud de servicio para ADA.\n\n--- Detalles ---\n\n- Cliente: ${nombre}\n- Email: ${email}\n- Equipo: ${equipo}\n\n--- Problema ---\n${problema}\n\n------------------\n\nContactar para coordinar.`;
+            const mailtoLink = `mailto:${tuCorreo}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+            window.location.href = mailtoLink;
+            confirmationMessage.classList.remove('hidden');
+            form.reset();
+            setTimeout(() => { confirmationMessage.classList.add('hidden'); }, 10000);
+        });
+
+        // Lógica para el efecto de escritura
+        function typewriter() {
+            return {
+                text: '',
+                words: ['tus Laptops', 'tu PC', 'tus Dispositivos'],
+                wordIndex: 0,
+                charIndex: 0,
+                isDeleting: false,
+                typeSpeed: 100,
+                deleteSpeed: 50,
+                delay: 2000,
+                init() {
+                    this.type();
+                },
+                type() {
+                    const currentWord = this.words[this.wordIndex];
+                    if (this.isDeleting) {
+                        this.text = currentWord.substring(0, this.charIndex - 1);
+                        this.charIndex--;
+                    } else {
+                        this.text = currentWord.substring(0, this.charIndex + 1);
+                        this.charIndex++;
+                    }
+
+                    let speed = this.isDeleting ? this.deleteSpeed : this.typeSpeed;
+
+                    if (!this.isDeleting && this.charIndex === currentWord.length) {
+                        speed = this.delay;
+                        this.isDeleting = true;
+                    } else if (this.isDeleting && this.charIndex === 0) {
+                        this.isDeleting = false;
+                        this.wordIndex = (this.wordIndex + 1) % this.words.length;
+                        speed = 500;
+                    }
+                    
+                    setTimeout(() => this.type(), speed);
+                }
+            }
+        }
+
+        // Lógica para animaciones al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
