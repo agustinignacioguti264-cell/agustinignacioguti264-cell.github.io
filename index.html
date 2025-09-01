@@ -64,11 +64,6 @@
 <body class="bg-dark-bg text-light-text" x-data="{ scrolled: false }" @scroll.window="scrolled = (window.scrollY > 50)">
 
     <!-- Header y Navegación -->
-    <nav :class="{'bg-dark-bg/70 backdrop-blur-lg shadow-lg': scrolled, 'bg-transparent': !scrolled}" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center max-w-7xl">
-            {/* ★★★ AQUÍ ESTÁ EL CAMBIO DEL LOGO ★★★ */}
-            <a href="#">
-                <img src="logo-ada.jpg" alt="Logo de ADA Servicio Técnico" class="h-12">
             </a>
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#servicios" class="text-light-text hover:text-primary transition-colors">Servicios</a>
@@ -215,8 +210,6 @@
     <!-- Pie de Página -->
     <footer class="text-center mt-16 py-10 border-t border-slate-700 bg-light-bg">
         <div class="container mx-auto px-6 flex flex-col items-center">
-            {/* ★★★ AQUÍ ESTÁ EL CAMBIO DEL LOGO EN EL FOOTER ★★★ */}
-            <img src="logo-ada.jpg" alt="Logo de ADA Servicio Técnico" class="h-16 mb-4">
             <p class="text-light-text">© 2024 ADA Servicio Técnico | Curicó, Chile</p>
             <p class="text-sm text-slate-500 mt-2">Diseño y desarrollo con ♥</p>
         </div>
@@ -304,6 +297,7 @@
 </body>
 
 </html>
+
 
 
 
